@@ -10,4 +10,4 @@
   // URL Root
   define('URLROOT', 'http://localhost/brief6/traversymvc');
   // Site Name
-  define('SITENAME', 'TraversyMVC');
+  define('SITENAME', ' shipcruisetour');

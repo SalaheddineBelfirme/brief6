@@ -1,7 +1,10 @@
 <?php
   class Pages extends Controller {
     public function __construct(){
-      $this->postModel = $this->model('Post');
+      $this->postModel = $this->model('croisiere');
+      $this->navire = $this->model('navierM');
+      $this->Port = $this->model('portM');
+
     }
     
     public function index(){
@@ -58,8 +61,11 @@
     }
 
     public function croisiere(){
+      $croisiere=$this->postModel->getcro();
+      
       $data = [
-        'title' => 'croisiere '
+        'title' => 'croisiere ',
+        'croisiere'=>$croisiere
       ];
 
       $this->view('pages/croisiere', $data);
@@ -83,11 +89,17 @@
       $this->view('pages/add_port', $data);
     }
     public function portdata(){
+     
+      $datanavier= $this->navire->getnavier();
+      $dataPort=$this->Port->getPORT();
+
       $data = [
-        'title' => 'portdata'
+        'title' => 'portdata',
+        'navier'=> $datanavier,
+        'Port'=> $dataPort
       ];
 
-      $this->view('pages/portdata', $data);
+      $this->view('pages/Croisiereedata', $data);
     }
 
   }
