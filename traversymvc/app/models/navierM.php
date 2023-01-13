@@ -22,7 +22,7 @@
         $stmt->bindValue(':nb_chomber',$nb_place,PDO::PARAM_INT);
         $stmt->execute();
         if ($stmt->rowCount()>0) {
-            return true;
+            return $stmt->rowCount();
          } else {
              return false;
          }

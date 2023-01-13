@@ -1,7 +1,9 @@
 <?php require APPROOT . '/views/inc/header.php';
 require  APPROOT . '/controllers/Croisiere.php ';
-?>
 
+
+?>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 <div id="container_crosi" class="container-fluid position-relative p-0  ">
   <?php require APPROOT . '/views/inc/nav.php'; ?>
   <div class="row">
@@ -16,24 +18,28 @@ require  APPROOT . '/controllers/Croisiere.php ';
               <tr>
                 <td scope="col">name</td>
                 <td scope="col">prix</td>
-                <td scope="col">ctgoery</td>
-                <td scope="col">description</td>
+                <td scope="col">nb_nuits</td>
+                <td scope="col">depart</td>
+                <td scope="col">navier</td>
+                <td scope="col">date</td>
                 <td scope="col">image</td>
-                <td scope="col">Action</td>
+
+                <td scope="col">5</td>
               </tr>
             </thead>
             <tbody>
               <?php $i = 0;
-              foreach ($prods as $user) { ?>
+              foreach ($data['croisiere'] as $cr) { ?>
                 <tr>
 
 
-                  <td scope="row"><?php echo $user[2]
-                                  ?></td>
-                  <td scope="row"><?php echo $user[1]; ?></td>
-                  <td scope="row"> <?php echo $user[7] ?>
-                  <td scope="row"> <?php echo $user[3] ?>
-                  <td scope="row"> <img id="imgp" src="./public/images/<?php echo $user[4] ?>" alt=""></td>
+                  <td scope="row"><?php echo $cr->name?></td>
+                  <td scope="row"><?php echo $cr->prix?></td>
+                  <td scope="row"><?php echo $cr->nb_nuits; ?></td>
+                  <td scope="row"> <?php echo $cr->nameP  ?>
+                  <td scope="row"> <?php echo $cr->nameN  ?>
+                  <td scope="row"> <input  type="datetime-local"  value="<?php echo $cr->datee  ?>" readonly>
+                  <td scope="row"> <img id="imgp" src="../public/imgg/<?php echo $cr->image ?>" alt=""></td>
                   <td scope="row">
 
                     <form action=" " method="post">
@@ -117,26 +123,23 @@ require  APPROOT . '/controllers/Croisiere.php ';
             <thead>
               <tr>
                 <td scope="col">name</td>
-                <td scope="col">prix</td>
-                <td scope="col">ctgoery</td>
-                <td scope="col">description</td>
-                <td scope="col">image</td>
-                <td scope="col">Action</td>
+                <td scope="col">place</td>
+                <td scope="col">chomber</td>
+                <td scope="col">action</td>
+   
               </tr>
             </thead>
             <tbody>
               <?php $i = 0;
-              foreach ($prods as $user) { ?>
+              foreach ($data['navier'] as $nv) { ?>
                 <tr>
 
 
-                  <td scope="row"><?php echo $user[2]
+                  <td scope="row"><?php echo $nv->nameN
                                   ?></td>
-                  <td scope="row"><?php echo $user[1]; ?></td>
-                  <td scope="row"> <?php echo $user[7] ?>
-                  <td scope="row"> <?php echo $user[3] ?>
-                  <td scope="row"> <img id="imgp" src="./public/images/<?php echo $user[4] ?>" alt=""></td>
-                  <td scope="row">
+                  <td scope="row"><?php echo $cr->nb_place; ?></td>
+                  <td scope="row"> <?php echo $nv->nb_chombre?>
+                
 
                     <form action=" " method="post">
                       <input type="hidden" name="id_de" value="<?php echo $user[0]; ?>">
@@ -207,7 +210,7 @@ require  APPROOT . '/controllers/Croisiere.php ';
 
 
           <input name="name" type="text" class="form-control" placeholder="name" aria-label="Username" aria-describedby="basic-addon1" required>
-          <input name="price" type="text" class="form-control" placeholder="prix" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
+          <input name="prix" type="text" class="form-control" placeholder="prix" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
           <input name="date" type="datetime-local" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" required>
           <input accept=".jpg,jpeg,.png" name="imageadd" type="file" class="form-control" required>
           <input name="nights" type="number" class="form-control" placeholder="n°nights" aria-describedby="basic-addon1" required>
@@ -216,7 +219,7 @@ require  APPROOT . '/controllers/Croisiere.php ';
             <option selected>Navier </option>
             <?php foreach ($data['navier'] as $row) { ?>
 
-              <option value="<?php echo $row->id_navier ?>"><?php echo $row->name ?></option>
+              <option value="<?php echo $row->id_navire ?>"><?php echo $row->name ?></option>
             <?php } ?>
           </select>
 
@@ -224,7 +227,7 @@ require  APPROOT . '/controllers/Croisiere.php ';
             <option selected>PORT </option>
             <?php foreach ($data['Port'] as $row) { ?>
 
-              <option value="<?php echo $row->id_navier ?>"><?php echo $row->name ?></option>
+              <option value="<?php echo $row->id_port ?>"><?php echo $row->name ?></option>
             <?php } ?>
           </select>
 
@@ -286,3 +289,11 @@ require  APPROOT . '/controllers/Croisiere.php ';
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+      $(document).ready( function () {
+    $('#tdata').DataTable();
+          } );
+    </script>

@@ -27,7 +27,7 @@
                   </div>
             </div>
             <div class="col-md-6">
-                <form action="">
+                <form method="post" action="<?php echo URLROOT ?>/login/loginn/">
                         <div class="row d-flex justify-content-center align-items-center">
                             <img  id="imge_logi" class="w-25 d-flex-column justify-content-center " src="./imgg/logo-removebg-preview.png" alt="" >
                     
@@ -36,13 +36,13 @@
                                 adipisicing elit. Culpa, nihil quae maiores, iste nostrum laboriosam voluptas totam quis</p>
 
                             <div class="mb-3">
-                                <input placeholder="Email" required class="form-control w-75 m-auto mb-3 " type="email">
+                                <input placeholder="Email" required  name="email"  class="form-control w-75 m-auto mb-3 " type="email">
                             </div>
                             <div class="mb-3">
-                                <input placeholder="Password" required class="form-control  w-75 m-auto  mb-3" type="password">
+                                <input placeholder="Password" name="pass" required class="form-control  w-75 m-auto  mb-3" type="password">
                             </div>
                     
-                            <button type="submit" class="form-control btn btn-primary w-75 mb-4    ">Submit</button>
+                            <button type="submit" name="log" class="form-control btn btn-primary w-75 mb-4    ">Submit</button>
                      
                         </div>
 

@@ -1,12 +1,45 @@
 <?php
+session_start();
   class Pages extends Controller {
+    private $postModel;
+    private $navire;
+    private $Port;
+    public static $btn;
+    
     public function __construct(){
-      $this->postModel = $this->model('croisiere');
+      $this->postModel = $this->model('croisiereM');
       $this->navire = $this->model('navierM');
       $this->Port = $this->model('portM');
 
     }
     
+   
+   static public function  test(){
+    
+    if(isset($_SESSION['log'])  && $_SESSION['log']<>false){
+      if( ($_SESSION['log'][0]->role==1 ) ){
+        return "block";
+      }
+      
+    }
+    else {
+      return "none";
+    }
+    }
+    static public function  testlog(){
+      if(isset($_SESSION['log']) && $_SESSION['log']<>false ){
+        if( ($_SESSION['log'][0]->role==1 ) ){
+  
+          return "logout";
+        }
+        
+      }
+      else {
+        return "login";
+      }
+      
+      }
+
     public function index(){
       $data = [
         'title' => 'Welcome'
@@ -28,6 +61,10 @@
       ];
 
       $this->view('pages/login', $data);
+    }
+    public function logout(){
+      session_destroy();
+      $this->view('pages/login');
     }
     public function about(){
       $data = [
@@ -88,18 +125,34 @@
 
       $this->view('pages/add_port', $data);
     }
-    public function portdata(){
+    public function dashboard(){
+     if(isset($_SESSION['log'])){
+      if( ($_SESSION['log'][0]->role==1 ) ){
+        $croisiere=$this->postModel->getall();
+        $datanavier= $this->navire->getnavier();
+        $dataPort=$this->Port->getPORT();
+  
+        $data = [
+          'croisiere' => $croisiere,
+          'navier'=> $datanavier,
+          'Port'=> $dataPort,
+       
+        ];
+        $this->view('pages/dashboard', $data);
+  
+  
+       }
+     }
+   
+
+     else{
+      header("Location: http://localhost/brief6/traversymvc/pages/login");
+
+     }
      
-      $datanavier= $this->navire->getnavier();
-      $dataPort=$this->Port->getPORT();
-
-      $data = [
-        'title' => 'portdata',
-        'navier'=> $datanavier,
-        'Port'=> $dataPort
-      ];
-
-      $this->view('pages/Croisiereedata', $data);
     }
 
   }
+
+
+  

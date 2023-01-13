@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php';
-// echo ($data['title']);
-print_r($data['croisiere']);
+
+
 
 ?>
 
@@ -65,8 +65,8 @@ print_r($data['croisiere']);
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="package-item">
                             <div class="overflow-hidden">
-                                <h1><?php echo  $row->image;  ?>hhhhhhh</h1>
-                                <img class="img-fluid" src="<?php echo  URLROOT .  $row->image ?>" alt="">
+                                <h1><?php   ?>hhhhhhh</h1>
+                                <img class="img-fluid" src="../public/imgg/<?php echo  $row->image; ?>"  alt="">
                             </div>
                             <div class="d-flex border-bottom">
                                 <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i>Thailand</small>
