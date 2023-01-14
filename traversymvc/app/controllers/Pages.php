@@ -13,6 +13,7 @@ session_start();
 
     }
     
+    
    
    static public function  test(){
     
@@ -98,10 +99,9 @@ session_start();
     }
 
     public function croisiere(){
-      $croisiere=$this->postModel->getcro();
-      
+      $croisiere=$this->postModel->getall();
       $data = [
-        'title' => 'croisiere ',
+        'port' => ' ',
         'croisiere'=>$croisiere
       ];
 

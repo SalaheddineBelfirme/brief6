@@ -13,9 +13,17 @@
     //return $this->db->resultSet();
     
     }
+    public function deleteportt($id){
+      $stmt= $this->db->query("DELETE  FROM port where id_port =$id ");
+      $stmt->execute();
+     if($stmt->rowCount()>0){
+      return true;
+     }
+     else return false;
+       }
 
     public function addport($name,$pays){
-        $sql="INSERT INTO `port`( `name`,`pays`)  VALUES (:name,:pays)";
+        $sql="INSERT INTO `port`( `nameP`,`pays`)  VALUES (:name,:pays)";
         $stmt=$this->db->query($sql);
         $stmt->bindValue(':name',$name,PDO::PARAM_STR);
         $stmt->bindValue(':pays',$pays,PDO::PARAM_STR);
@@ -31,11 +39,11 @@
     }
 
 
-    public function deleteport ($id){
-      $sql ="DELETE FROM `port` WHERE id_port=:id";
-     $stmt= $this->db->query($sql);
-     $stmt->bindValue(':id',$id,PDO::PARAM_INT);
-    }
+    // public function deleteport ($id){
+    //   $sql ="DELETE FROM `port` WHERE id_port=:id";
+    //  $stmt= $this->db->query($sql);
+    //  $stmt->bindValue(':id',$id,PDO::PARAM_INT);
+    // }
 
 
   }

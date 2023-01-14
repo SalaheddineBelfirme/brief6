@@ -17,6 +17,23 @@ class Navier extends Controller {
 
       }
 
+      public function Deletenavier($id){
+    
+       
+        $nv=new navierM();
+        $nv->deletenavire($id);
+   
+       
+        if($nv==true){
+          $_SESSION['deletenavier']=true;
+          header("Location: http://localhost/brief6/traversymvc/pages/dashboard");
+        }
+        else{
+          $_SESSION['deletenavier']=false;
+        }
+
+      }
+
     public function addNavier(){
       if(isset($_POST['add_navier'])){
 
@@ -28,9 +45,10 @@ class Navier extends Controller {
       
        $bol= $nv->addnavier($name,$nb_place,$nb_chomber);
       if($bol >0){
-        header("Location: http://localhost/brief6/traversymvc/pages/portdata");
+        header("Location: http://localhost/brief6/traversymvc/pages/dashboard");
        }
        else return $bol;
+      
     }
 
 

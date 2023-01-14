@@ -8,10 +8,26 @@ class Croisiere extends Controller {
     $this->postModel = $this->model('croisiereM');
     
   }
-    public function addCroisiere(){
 
-      if(isset($_POST['submitadd'])){
+  public function DeleteCroisiere($id){
     
+       
+    $cr=new croisiereM();
+    $cr->deletecro($id);
+    
+   
+    if($cr==true){
+      $_SESSION['deletenavier']=true;
+      header("Location: http://localhost/brief6/traversymvc/pages/dashboard");
+    }
+    else{
+      $_SESSION['deletenavier']=false;
+    }
+
+  }
+
+    public function addCroisiere(){
+      if(isset($_POST['submitadd'])){
       $cr=new croisiereM();
       $nb_nuits=$_POST['nights'];
       echo $nb_nuits;
@@ -33,7 +49,7 @@ class Croisiere extends Controller {
               $bol= $cr->addcroos($nb_nuits,$newImageName,$navier,$port_depart,$name,$date,$prix,$trajet);
              
               if($bol==true){
-                header("Location: http://localhost/brief6/traversymvc/pages/portdata");
+                header("Location: http://localhost/brief6/traversymvc/pages/dashboard");
               }
               else{
                 echo$bol;

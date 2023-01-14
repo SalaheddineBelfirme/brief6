@@ -13,7 +13,7 @@ require  APPROOT . '/controllers/Croisiere.php ';
           <a data-bs-toggle="modal" data-bs-target="#cr" data-bs-whatever="@mdo">
             <i class="fas fa-plus">add croice</i>
           </a>
-          <table id="tdata" class="table table-hover ">
+          <table id="tdata" class="table table-hover " >
             <thead>
               <tr>
                 <td scope="col">name</td>
@@ -24,7 +24,7 @@ require  APPROOT . '/controllers/Croisiere.php ';
                 <td scope="col">date</td>
                 <td scope="col">image</td>
 
-                <td scope="col">5</td>
+                <td scope="col">Action</td>
               </tr>
             </thead>
             <tbody>
@@ -34,17 +34,17 @@ require  APPROOT . '/controllers/Croisiere.php ';
 
 
                   <td scope="row"><?php echo $cr->name?></td>
-                  <td scope="row"><?php echo $cr->prix?></td>
+                  <td scope="row"><?php echo $cr->prix?>$</td>
                   <td scope="row"><?php echo $cr->nb_nuits; ?></td>
                   <td scope="row"> <?php echo $cr->nameP  ?>
                   <td scope="row"> <?php echo $cr->nameN  ?>
-                  <td scope="row"> <input  type="datetime-local"  value="<?php echo $cr->datee  ?>" readonly>
-                  <td scope="row"> <img id="imgp" src="../public/imgg/<?php echo $cr->image ?>" alt=""></td>
+                  <td scope="row"> <input  type="datetime-local"  value="<?php echo $cr->datee  ?>" readonly></td>
+                  <td scope="row"> <img style="width: 100px ;height: 100px;" id="imgp" src="../public/imgg/<?php echo $cr->image ?>" alt=""></td>
                   <td scope="row">
 
-                    <form action=" " method="post">
-                      <input type="hidden" name="id_de" value="<?php echo $user[0]; ?>">
-                      <button style="margin-left: 10px;" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                  <form action="<?php echo URLROOT?>/Croisiere/DeleteCroisiere/<?php echo $cr->id_croisiere  ?>" method="post">           
+                  
+                      <button style="margin-left:10px" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </form>
                   </td>
                 </tr>
@@ -72,30 +72,23 @@ require  APPROOT . '/controllers/Croisiere.php ';
             <thead>
               <tr>
                 <td scope="col">name</td>
-                <td scope="col">prix</td>
+                <td scope="col">pays</td>
                 <td scope="col">ctgoery</td>
-                <td scope="col">description</td>
-                <td scope="col">image</td>
-                <td scope="col">Action</td>
+                
               </tr>
             </thead>
             <tbody>
               <?php $i = 0;
-              foreach ($prods as $user) { ?>
+              foreach ($data['Port'] as $pr) { ?>
                 <tr>
 
 
-                  <td scope="row"><?php echo $user[2]
-                                  ?></td>
-                  <td scope="row"><?php echo $user[1]; ?></td>
-                  <td scope="row"> <?php echo $user[7] ?>
-                  <td scope="row"> <?php echo $user[3] ?>
-                  <td scope="row"> <img id="imgp" src="./public/images/<?php echo $user[4] ?>" alt=""></td>
+                  <td scope="row"><?php echo $pr->nameP?></td>
+                  <td scope="row"><?php echo $pr->pays; ?></td>
                   <td scope="row">
 
-                    <form action=" " method="post">
-                      <input type="hidden" name="id_de" value="<?php echo $user[0]; ?>">
-                      <button style="margin-left: 10px;" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                  <form action="<?php echo URLROOT?>/Port/deletePort/<?php echo $pr->id_port ?>" method="post">           
+                     <button style="margin-left: 10px;" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </form>
                   </td>
                 </tr>
@@ -126,24 +119,18 @@ require  APPROOT . '/controllers/Croisiere.php ';
                 <td scope="col">place</td>
                 <td scope="col">chomber</td>
                 <td scope="col">action</td>
-   
               </tr>
             </thead>
             <tbody>
               <?php $i = 0;
               foreach ($data['navier'] as $nv) { ?>
                 <tr>
-
-
-                  <td scope="row"><?php echo $nv->nameN
-                                  ?></td>
-                  <td scope="row"><?php echo $cr->nb_place; ?></td>
+                  <td scope="row"><?php echo $nv->nameN?></td>
+                  <td scope="row"><?php echo $nv->nb_place; ?></td>
                   <td scope="row"> <?php echo $nv->nb_chombre?>
-                
-
-                    <form action=" " method="post">
-                      <input type="hidden" name="id_de" value="<?php echo $user[0]; ?>">
-                      <button style="margin-left: 10px;" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                  <td scope="row">
+                    <form action="<?php echo URLROOT?>/Navier/Deletenavier/<?php echo $nv->id_navire ?>" method="post">
+                      <button style="margin-left: 10px;" type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </form>
                   </td>
                 </tr>
@@ -219,7 +206,7 @@ require  APPROOT . '/controllers/Croisiere.php ';
             <option selected>Navier </option>
             <?php foreach ($data['navier'] as $row) { ?>
 
-              <option value="<?php echo $row->id_navire ?>"><?php echo $row->name ?></option>
+              <option value="<?php echo $row->id_navire ?>"><?php echo $row->nameN ?></option>
             <?php } ?>
           </select>
 
@@ -227,7 +214,7 @@ require  APPROOT . '/controllers/Croisiere.php ';
             <option selected>PORT </option>
             <?php foreach ($data['Port'] as $row) { ?>
 
-              <option value="<?php echo $row->id_port ?>"><?php echo $row->name ?></option>
+              <option value="<?php echo $row->id_port ?>"><?php echo $row->nameP ?></option>
             <?php } ?>
           </select>
 

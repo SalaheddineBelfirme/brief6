@@ -13,7 +13,7 @@ class Port extends Controller {
         $pays=$_POST['pays'];
         $bol= $nv->addport($name,$pays);
           if($bol >0){
-              header("Location: http://localhost/brief6/traversymvc/pages/portdata");
+            header("Location: http://localhost/brief6/traversymvc/pages/dashboard");
           }
           else return $bol;
 
@@ -30,8 +30,17 @@ class Port extends Controller {
 
   public function deletePort($id){
     $port=new PortM();
-    $port->deletePort($id);
+    $pr=$port->deletePortt($id);
+    if($port==true){
+      $_SESSION['deleteport']=true;
+      header("Location: http://localhost/brief6/traversymvc/pages/dashboard");
+    }
+    else{
+      $_SESSION['deleteport']=false;
+    }
+  
   }
+
 }
 
 

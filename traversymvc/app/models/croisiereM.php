@@ -18,6 +18,15 @@
    return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function deletecro($id){
+      $stmt= $this->db->query("DELETE  FROM croisiere where id_croisiere =$id ");
+      $stmt->execute();
+     if($stmt->rowCount()>0){
+      return true;
+     }
+     else return false;
+       }
+
     
     public function addcroos($nb_nuits,$image,$navire,$port_depar,$name ,$date,$prix,array $chekport ){
     $sql= "INSERT INTO `croisiere`(`nb_nuits`, `image`, `navire`, `port_de_depart`, `name`,`datee`,`prix`) VALUES (:nb_nuits,:image,:navire,:portd,:name,:date,:prix)";
