@@ -69,7 +69,7 @@
                         <div class="package-item">
                             <div class="overflow-hidden">
                                 <h1 class="text-center text-primary"><?php echo  $row->name  ?></h1>
-                                <img class="img-fluid" src="../public/imgg/<?php echo  $row->image; ?>"  alt="">
+                                <img class="img-fluid" style="width: 404px; height: 305px;" src="../public/imgg/<?php echo  $row->image; ?>"  alt="">
                             </div>
                             <div class="d-flex border-bottom">
                                 <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i><?php echo  $row->nameP  ?></small>

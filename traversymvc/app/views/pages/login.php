@@ -47,7 +47,7 @@
                         </div>
 
                         <p style="font-size: small   w-75;" class="text-muted text-center ">Lorem ipsum dolor sit amet consectetur jhsjhsskms
-                            adipisicing elit. Culpa, nihil quae maiores, iste nostrum <a href="signin.html">sgin up</a></p>
+                            adipisicing elit. Culpa, nihil quae maiores, iste nostrum <a href="signin">sgin up</a></p>
                   
                 </form>
 

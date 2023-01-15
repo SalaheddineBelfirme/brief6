@@ -55,6 +55,15 @@ session_start();
 
       $this->view('pages/home', $data);
     }
+
+    public function details(){
+      $data = [
+        'title' => 'd Us'
+      ];
+
+      $this->view('pages/details', $data);
+    }
+    
     
     public function login(){
       $data = [

@@ -2,22 +2,78 @@ const menubtn = document.querySelector('#menu-btn');
 const navbar = document.querySelector('.header .navbar');
 
 
- var listcros=document.getElementsByClassName('croses');
- var inputs = document.querySelectorAll("croses").values;
- var elements = document.getElementsByClassName("croses");
-//  log(listcros);
+document.addEventListener("DOMContentLoaded",()=>{
 
-elements.forEach(function(element) {
-  console.log(element.value);
+  var listcros = document.querySelectorAll(".croses");
+  console.log("ssssssss");
+
+//   var date=new Date()
+// const datecr = new Date(listcros[1].value);
+
+// const today = datecr.getDate();
+// const currentMonth = datecr.getMonth(); 
+// const yaer=datecr.getFullYear();
+// console.log(today);
+// console.log(currentMonth);
+// console.log(yaer);
+
+var card =listcros[1].parentNode.parentNode.parentElement;
+console.log(card);
+card.style.color="red";
+card.backgroundColor = "red";
+// card.disabled = true;
+
+
+listcros.forEach(function(listcros) {
+ 
+  const datecr = new Date(listcros.value);
+
+      var today = new Date();
+    console.log(today);
+   var yester2day = new Date(today);
+   yester2day.setDate(yester2day.getDate() +2);
+
+
+   var disble=false;
+   console.log(datecr);
+   console.log(yester2day);
+  
+   if( yester2day> datecr){
+    disble=true;
+   console.log("zhaya");
+
+    
+   }
+   if(disble){
+    console.log(disble);
+    var card =listcros.parentNode.parentNode.parentElement;
+    console.log(card);
+    card.style.color="red";
+    
+   
+    
+   }
+  
+  
+
+
+   console.log("next");
+  
 });
-// console.log(elements);
-// console.log(elements);
-//  console.log(elements[0]);
-var date=new Date()
-const datecr = new Date('Jul 12 2011');
+
+
+ 
+
+ 
+})
+
+
+
+
  const today = datecr.getDate();
 const currentMonth = date.getMonth()+1; 
 console.log(today);
+
 
 // menubtn.addEventListener('click',()=>{
 //     navbar.classList.toggle('active');
