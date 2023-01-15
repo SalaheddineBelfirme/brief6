@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php';
-print_r($data['croisiere'][0])
+
 ?>
 
     <div  id="container_crosi"   class="container-fluid position-relative p-0  ">
@@ -8,47 +8,44 @@ print_r($data['croisiere'][0])
             <div class="container">
               <div class="row">
                 <div class="col-lg-12">
-                  <form id="search-form" name="gs" method="submit" role="search" action="#">
+                  <form id="search-form" name="gs" method="post" role="search" action="<?php echo URLROOT?>/Pages/croisiere/">
                     <div class="row">
                       <div class="col-lg-2">
                         <h4>Sort Deals By:</h4>
                       </div>
                       <div class="col-lg-3">
                           <fieldset>
-                              <select name="Location" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
-                              <option selected>date</option>
-                              <?php foreach($data['croisiere'] as $row) {?>
-                                  <option value="<?php echo $row->id_croisiere ?>"><?php echo $row->datee ?></option>
-                                  <?php } ?>
-                              </select>
+                            
+                              <input name="date" type="datetime-local" class="form-select" aria-label="Default select example" id="chooseLocation">
+                            
+                             
                           </fieldset>
                       </div>
                       <div class="col-lg-3">
                           <fieldset>
-                              <select name="Location" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
-                                  <option selected>port</option>
-                                  <?php foreach($data['croisiere'] as $row) {?>
+                              <select name="port" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
+                                  <option value="<?php echo null ?>" selected>port</option>
+                                  <?php foreach($data['filter'] as $row) {?>
                                   <option value="<?php echo $row->id_port ?>"><?php echo $row->nameP ?></option>
                                   <?php } ?>
                           
-
-                              
                               </select>
                           </fieldset>
                       </div>
                       <div class="col-lg-3">
                           <fieldset>
-                              <select name="Price" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
-                                  <option selected>Price Range</option>
-                                  <?php foreach($data['croisiere'] as $row) {?>
-                                  <option value="<?php echo $row->prix ?>"><?php echo $row->prix ?></option>
+                              <select name="navier" class="form-select" aria-label="Default select example" id="choosePrice" >
+                              <option value="<?php echo null ?>" selected>Navier</option>
+                                  <?php foreach($data['filter'] as $row) {?>
+                                  <option value="<?php echo $row->id_navire ?>"><?php echo $row->nameN ?></option>
                                   <?php } ?>
                               </select>
                           </fieldset>
                       </div>
                       <div class="col-lg-2">                        
                           <fieldset>
-                              <button class="border-button">Search Results</button>
+                              <button type="submit"  class="border-button"  >Search Results</button>
+                            
                           </fieldset>
                       </div>
                     </div>
@@ -66,6 +63,7 @@ print_r($data['croisiere'][0])
                     <h1 class="mb-5 ">Awesome Packages</h1>
                 </div>
                 <div class="row g-4 justify-content-center">
+                    <button ></button>
                     <?php foreach($data['croisiere'] as $row) {?>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="package-item">
@@ -76,6 +74,7 @@ print_r($data['croisiere'][0])
                             <div class="d-flex border-bottom">
                                 <small class="flex-fill text-center border-end py-2"><i class="fa fa-map-marker-alt text-primary me-2"></i><?php echo  $row->nameP  ?></small>
                                 <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i><?php echo  $row->datee  ?></small>
+                                <input class="croses" type="text" value="<?php echo  $row->datee ?>">
                                 <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i><?php echo  $row->nb_place  ?> Person</small>
                             </div>
                             <div class="text-center p-4">

@@ -6,8 +6,34 @@
        $this->db = new Database;
     }
 
-    public function getall(){
-      $stmt= $this->db->query("SELECT * FROM croisiere c,port p,navire n  WHERE c.navire=n.id_navire  AND c.port_de_depart=p.id_port");
+    public function getforfilter($prams=array()){
+     echo $prams[2];
+     
+    
+      $qury="SELECT * FROM croisiere c,port p,navire n  WHERE c.navire=n.id_navire  AND c.port_de_depart=p.id_port  and c.id_croisiere in(SELECT id_croisiere FROM prot_croisi WHERE c.id_croisiere=prot_croisi.id_croisi ";
+    
+      if($prams[1]<>""){
+        $qury=sprintf($qury.' AND n.id_navire =%d',$prams[1]);
+      }
+      if($prams[2]<>""){
+        $qury=sprintf($qury.' AND c.datee >"%s"',$prams[2]);
+
+      }
+      if($prams[0]<> "" ){
+        $qury=sprintf($qury.' AND prot_croisi.id_port=%d',$prams[0]);
+      }
+      $qury=sprintf($qury.')');
+      $stmt= $this->db->query($qury);
+      $stmt->execute();
+
+      
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
+  
+       }
+
+    public function getall($port=null,$date=null,$navier=null){
+      $qury="SELECT * FROM croisiere c,port p,navire n  WHERE c.navire=n.id_navire  AND c.port_de_depart=p.id_port";
+      $stmt= $this->db->query($qury);
       $stmt->execute();
       return $stmt->fetchAll(PDO::FETCH_OBJ);
        }

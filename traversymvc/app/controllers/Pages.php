@@ -99,14 +99,47 @@ session_start();
     }
 
     public function croisiere(){
-      $croisiere=$this->postModel->getall();
-      $data = [
-        'port' => ' ',
-        'croisiere'=>$croisiere
-      ];
+      $param=array(null,null,null);
+      $bol=true;
+      if(isset($_POST["port"])){
+        $bol=false;
+        $param[0]=$_POST["port"];
+      //  echo "porthwa hada----".$param[0]."-----";
+      //  var_dump($param[0]);
+       
+        
+        // $croisiere=$this->postModel->getforfilter($Port);
 
-      $this->view('pages/croisiere', $data);
-    }
+      }
+      if(isset($_POST["navier"])){
+        $bol=false;
+        $param[1]=$_POST["navier"];
+        // $croisiere=$this->postModel->getforfilter($navier);
+      }
+      if(isset($_POST["date"])){
+        $bol=false;
+        $param[2]=$_POST["date"];
+        // $croisiere=$this->postModel->getforfilter($data);
+       
+      }
+     
+      if($bol){
+        $croisiere=$this->postModel->getall();
+      }
+      else{
+     
+        $croisiere=$this->postModel->getforfilter($param);
+      }
+     $filter =$this->postModel->getall();
+        $data = [
+          'filter' => $filter,
+          'croisiere'=>$croisiere
+        ];
+  
+        $this->view('pages/croisiere', $data);
+      }
+
+
 
     public function add_croisi(){
       $data = [
