@@ -39,16 +39,15 @@ listcros.forEach(function(listcros) {
    console.log(yester2day);
   
    if( yester2day> datecr){
-    disble=true;
-   console.log("zhaya");
-
-    
-   }
-   if(disble){
+   
     console.log(disble);
     var card =listcros.parentNode.parentNode.parentElement;
     console.log(card);
     card.style.color="red";
+
+   }
+   if(disble){
+ 
     
    
     

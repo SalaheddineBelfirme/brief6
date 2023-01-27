@@ -10,7 +10,6 @@
    $stmt->execute();
    return $stmt->fetchAll(PDO::FETCH_OBJ);
  
-    //return $this->db->resultSet();
     
     }
 

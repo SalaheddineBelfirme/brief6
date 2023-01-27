@@ -14,8 +14,7 @@
                         <h4>Sort Deals By:</h4>
                       </div>
                       <div class="col-lg-3">
-                          <fieldset>
-                            
+                          <fieldset
                               <input name="date" type="datetime-local" class="form-select" aria-label="Default select example" id="chooseLocation">
                             
                              
@@ -44,8 +43,7 @@
                       </div>
                       <div class="col-lg-2">                        
                           <fieldset>
-                              <button type="submit"  class="border-button"  >Search Results</button>
-                            
+                              <button type="submit"  class="border-button"  >Search Results</button>                  
                           </fieldset>
                       </div>
                     </div>
