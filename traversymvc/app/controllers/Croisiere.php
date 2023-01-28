@@ -10,8 +10,6 @@ class Croisiere extends Controller {
   }
 
   public function DeleteCroisiere($id){
-    
-       
     $cr=new croisiereM();
     $cr->deletecro($id);
     

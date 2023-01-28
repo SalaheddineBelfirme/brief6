@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   var listcros = document.querySelectorAll(".croses");
   console.log("ssssssss");
+  
 
 //   var date=new Date()
 // const datecr = new Date(listcros[1].value);
@@ -17,10 +18,11 @@ document.addEventListener("DOMContentLoaded",()=>{
 // console.log(currentMonth);
 // console.log(yaer);
 
-var card =listcros[1].parentNode.parentNode.parentElement;
-console.log(card);
-card.style.color="red";
-card.backgroundColor = "red";
+// var card =listcros[1].parentNode.parentNode.parentElement;
+// let test=listcros[1].parentNode.parentNode.children[0]
+// test.style.backgroundColor = "red";
+// console.log(listcros[1].parentNode.parentNode.children[0]);
+
 // card.disabled = true;
 
 
@@ -29,28 +31,32 @@ listcros.forEach(function(listcros) {
   const datecr = new Date(listcros.value);
 
       var today = new Date();
-    console.log(today);
    var yester2day = new Date(today);
    yester2day.setDate(yester2day.getDate() +2);
 
 
    var disble=false;
-   console.log(datecr);
-   console.log(yester2day);
   
    if( yester2day> datecr){
     disble=true;
-   console.log("zhaya");
-
-    
    }
    if(disble){
-    console.log(disble);
+  
     var card =listcros.parentNode.parentNode.parentElement;
+    // card.style.display="false"
+    // card.style.display = "none"
     console.log(card);
-    card.style.color="red";
-    
+    card.style.backgroundColor = "#5d6673";
    
+    let topcard=listcros.parentNode.parentNode.children[2].children[2].children[0]
+  topcard.disabled = true;
+  console.log(topcard)
+    
+    // let mid=listcros.parentNode
+    // mid.style.backgroundColor = "black";
+             
+
+
     
    }
   
