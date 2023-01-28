@@ -38,15 +38,29 @@ listcros.forEach(function(listcros) {
    var disble=false;
   
    if( yester2day> datecr){
+<<<<<<< HEAD
     disble=true;
    }
    if(disble){
   
+=======
+   
+    console.log(disble);
+>>>>>>> e1e6ecf9573365307e284bfabc3f9b86f936f67b
     var card =listcros.parentNode.parentNode.parentElement;
     // card.style.display="false"
     // card.style.display = "none"
     console.log(card);
+<<<<<<< HEAD
     card.style.backgroundColor = "#5d6673";
+=======
+    card.style.color="red";
+
+   }
+   if(disble){
+ 
+    
+>>>>>>> e1e6ecf9573365307e284bfabc3f9b86f936f67b
    
     let topcard=listcros.parentNode.parentNode.children[2].children[2].children[0]
   topcard.disabled = true;

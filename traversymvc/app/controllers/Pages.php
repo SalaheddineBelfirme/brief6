@@ -113,22 +113,17 @@ session_start();
       if(isset($_POST["port"])){
         $bol=false;
         $param[0]=$_POST["port"];
-      //  echo "porthwa hada----".$param[0]."-----";
-      //  var_dump($param[0]);
-       
-        
-        // $croisiere=$this->postModel->getforfilter($Port);
+    
 
       }
       if(isset($_POST["navier"])){
         $bol=false;
         $param[1]=$_POST["navier"];
-        // $croisiere=$this->postModel->getforfilter($navier);
+
       }
       if(isset($_POST["date"])){
         $bol=false;
         $param[2]=$_POST["date"];
-        // $croisiere=$this->postModel->getforfilter($data);
        
       }
      

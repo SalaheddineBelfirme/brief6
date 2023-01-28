@@ -98,6 +98,11 @@
     
      $stmt->execute();
 
+    }   
+    public function GetOneCrocisiere($id){
+
+      $stmt=$this->db->query("SELECT * FROM croisiere where id_croisiere =$id");
+
     }
 
   }
