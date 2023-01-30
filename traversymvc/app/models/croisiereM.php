@@ -101,8 +101,17 @@
     }   
     public function GetOneCrocisiere($id){
 
-      $stmt=$this->db->query("SELECT * FROM croisiere where id_croisiere =$id");
+      $qury="SELECT * FROM croisiere c,port p,navire n  WHERE c.navire=n.id_navire  AND c.port_de_depart=p.id_port and id_croisiere =$id";
+
+      $stmt=$this->db->query($qury);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
+      
 
     }
+
+
+    
+
 
   }

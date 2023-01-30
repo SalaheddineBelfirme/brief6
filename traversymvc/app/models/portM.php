@@ -45,6 +45,16 @@
     //  $stmt->bindValue(':id',$id,PDO::PARAM_INT);
     // }
 
+    public function getports($id){
+
+      $qury="SELECT * FROM prot_croisi pc ,port p  WHERE p.id_port=pc.id_port AND id_croisi=$id";
+
+      $stmt=$this->db->query($qury);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
+   
+    }   
+
 
   }
     ?>

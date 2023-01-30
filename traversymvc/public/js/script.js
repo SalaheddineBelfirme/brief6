@@ -1,36 +1,44 @@
 const menubtn = document.querySelector('#menu-btn');
 const navbar = document.querySelector('.header .navbar');
 
+ function swprix(){
+  var prixcr=document.getElementById('prixcr').value;
+   var prixchomber=document.getElementById('prixchomber').value;
+   var prix=document.getElementById('prix');
+  prix.value=(parseInt(prixcr)+parseInt(prixchomber))
+  console.log(prix.value)
+  prix.textContent=prix.value
+ }
+
+function save(event){
+
+ var   prixchomber=document.getElementById('prixchomber').value;
+ var   IdCr=document.getElementById('idcr').value;
+ if(prixchomber="100"){
+  $.ajax({
+    type: "GET",
+    url: "http://localhost/CureCoj/traversymvc/categorie/getcategorie/",
+    success: function (resolt){
+console.log("count ")
+    }
+
+  });
+ }
+}
 
 document.addEventListener("DOMContentLoaded",()=>{
 
   var listcros = document.querySelectorAll(".croses");
-  console.log("ssssssss");
+  console.log("page dane");
   
 
-//   var date=new Date()
-// const datecr = new Date(listcros[1].value);
-
-// const today = datecr.getDate();
-// const currentMonth = datecr.getMonth(); 
-// const yaer=datecr.getFullYear();
-// console.log(today);
-// console.log(currentMonth);
-// console.log(yaer);
-
-// var card =listcros[1].parentNode.parentNode.parentElement;
-// let test=listcros[1].parentNode.parentNode.children[0]
-// test.style.backgroundColor = "red";
-// console.log(listcros[1].parentNode.parentNode.children[0]);
-
-// card.disabled = true;
 
 
 listcros.forEach(function(listcros) {
  
   const datecr = new Date(listcros.value);
 
-      var today = new Date();
+   var today = new Date();
    var yester2day = new Date(today);
    yester2day.setDate(yester2day.getDate() +2);
 
@@ -38,44 +46,25 @@ listcros.forEach(function(listcros) {
    var disble=false;
   
    if( yester2day> datecr){
-<<<<<<< HEAD
     disble=true;
    }
    if(disble){
-  
-=======
-   
+
     console.log(disble);
->>>>>>> e1e6ecf9573365307e284bfabc3f9b86f936f67b
     var card =listcros.parentNode.parentNode.parentElement;
     // card.style.display="false"
     // card.style.display = "none"
+   
     console.log(card);
-<<<<<<< HEAD
     card.style.backgroundColor = "#5d6673";
-=======
     card.style.color="red";
 
    }
    if(disble){
- 
-    
->>>>>>> e1e6ecf9573365307e284bfabc3f9b86f936f67b
-   
-    let topcard=listcros.parentNode.parentNode.children[2].children[2].children[0]
-  topcard.disabled = true;
-  console.log(topcard)
-    
-    // let mid=listcros.parentNode
-    // mid.style.backgroundColor = "black";
-             
-
-
-    
+  let topcard=listcros.parentNode.parentNode.children[2].children[2].children[0]
+  topcard.style.backgroundColor="red"
+  topcard.href="#"    
    }
-  
-  
-
 
    console.log("next");
   
@@ -90,7 +79,7 @@ listcros.forEach(function(listcros) {
 
 
 
- const today = datecr.getDate();
+//  const today = datecr.getDate();
 const currentMonth = date.getMonth()+1; 
 console.log(today);
 

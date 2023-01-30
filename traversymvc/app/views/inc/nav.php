@@ -16,21 +16,14 @@ require_once '../app/controllers/Pages.php';
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a  href="home" class="nav-item nav-link active">Home</a>
-                    <a href="about" class="nav-item nav-link">About</a>
-                    <a href="croisiere" class="nav-item nav-link">croisiere</a>
+                    <a  href="<?php echo URLROOT ?>/Pages/home" class="nav-item nav-link active">Home</a>
+                    <a href="<?php echo URLROOT ?>/Pages/about" class="nav-item nav-link">About</a>
+                    <a href="<?php echo URLROOT ?>/Pages/croisiere" class="nav-item nav-link">croisiere</a>
                     <a style="display:<?php echo Pages::test();?>" href="dashboard" class="nav-item nav-link">dashboard</a>
-                    <!-- <div class="nav-item dropdown">
-                        <a href="dashboard" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">dashbord</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="portdata" class="dropdown-item">naveir</a>
-                            <a href="portdata" class="dropdown-item">port</a>
-                            <a href="404" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div> -->
-                    <a href="resvarstion" class="nav-item nav-link">resvarstion</a>
+                 
+                    <a href="<?php echo URLROOT ?>/Pages/resvarstion" class="nav-item nav-link">resvarstion</a>
                 </div>
-                    <a href="contact" class="nav-item nav-link">Contact</a>
+                    <a href="<?php echo URLROOT ?>/Pages/contact" class="nav-item nav-link">Contact</a>
                 </div>
                 <a href="<?php echo Pages::testlog();?>" class="btn btn-primary rounded-pill py-2 px-4"><?php echo Pages::testlog();?></a>
             </div>

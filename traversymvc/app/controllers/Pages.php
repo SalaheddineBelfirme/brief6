@@ -15,6 +15,10 @@ session_start();
     
     
    
+
+
+
+
    static public function  test(){
     
     if(isset($_SESSION['log'])  && $_SESSION['log']<>false){
@@ -55,16 +59,25 @@ session_start();
 
       $this->view('pages/home', $data);
     }
-
-    public function details(){
+    public function details($id){
+      $tragit=$this->Port->getports($id);
+      $croisiere=$this->postModel->GetOneCrocisiere($id);
       $data = [
-        'title' => 'd Us'
+        'croisiere' => $croisiere,
+        'ports'=>$tragit
       ];
 
       $this->view('pages/details', $data);
     }
     
-    
+    public function resvarstion(){
+      $data = [
+        'title' => 'resvarstion '
+      ];
+
+      $this->view('pages/resvarstion', $data);
+    }
+
     public function login(){
       $data = [
         'title' => 'login Us'
