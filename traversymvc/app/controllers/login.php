@@ -20,10 +20,8 @@ class login extends Controller {
         
      
        $r=$this->postModel->checklogin($email,$pass);
-        //  var_dump($r);
-  
- 
-  
+
+
        $_SESSION['log']=$r;
 
        if($r==false){

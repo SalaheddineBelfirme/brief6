@@ -33,13 +33,26 @@
           public function DeleteReservation($id){
 
                     $stmt= $this->db->query("DELETE FROM `reservation` WHERE id_reservation=:id ");
-                    $stmt->bindValue(':id',$id_client,PDO::PARAM_INT);
+                    $stmt->bindValue(':id',$id,PDO::PARAM_INT);
                     $stmt->execute();
-                    return $stmt->fetchAll(PDO::FETCH_OBJ);
-                  
-                    
-                     
-          }
+                    if($stmt->RowCount()>0){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+         }
+
+
+         public function Getchmbers($id){
+            $stmt= $this->db->query("SELECT * FROM `type _chambre` ,chambre WHERE `type _chambre`.`id_ty_chombre`=chambre.id_ty_chombre  and id_navire=:id ");
+            $stmt->bindValue(':id',$id,PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+          
+       }
+
+
 
         //   public function(){
            // $quer="SELECT * FROM `type _chambre` WHERE 1"

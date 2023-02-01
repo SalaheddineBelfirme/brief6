@@ -21,7 +21,7 @@
      }
      else return false;
        }
-
+       
     public function addnavier($name,$nb_place,$nb_chomber){
         $sql="INSERT INTO `navire`(`nameN`,`nb_chombre`, `nb_place`) VALUES(:name,:nb_place,:nb_chomber)";
         $stmt=$this->db->query($sql);

@@ -3,14 +3,15 @@ const navbar = document.querySelector('.header .navbar');
 
  function swprix(){
   var prixcr=document.getElementById('prixcr').value;
-   var prixchomber=document.getElementById('prixchomber').value;
+   var prixchomber=document.getElementById('prixchomber')
+   var pr=prixchomber.options[prixchomber.selectedIndex].dataset.prix;
+   console.log(pr)
    var prix=document.getElementById('prix');
-   var prixhi=document.getElementById('prixhi');
-
-  prix.value=(parseInt(prixcr)+parseInt(prixchomber))
-  console.log(prix.value)
+   var prixhi=document.getElementById('prixsw');
+  prix.value=(parseInt(prixcr)+parseInt(pr));
+  console.log(prix.value);
   prix.textContent=prix.value
-  prixhi.textContent=prix.value
+  prixhi.value=prix.value
 
  }
 

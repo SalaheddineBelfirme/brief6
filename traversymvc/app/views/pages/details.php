@@ -1,5 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/nav.php';
+var_dump($data['Rooms']) ;
 ?>
 
 
@@ -25,16 +26,16 @@
                 <form method="post" action="<?php echo URLROOT ?>/Reservation/reservation/" >
                     <input id="prixcr" value="<?php echo  $data['croisiere'][0]->prix ?>" type="hidden">
                     <input name="idCR" id="idcr" value="<?php echo  $data['croisiere'][0]->id_croisiere ?>" type="hidden">
-                    <input name="prixhi"  value="<?php echo  $data['croisiere'][0]->id_croisiere ?>" type="hidden">
+                    <input name="prixhi" id="prixsw"  value="<?php echo  $data['croisiere'][0]->prix ?>" type="TEXT">
                     <ul>
                         <li class="name"> <label for="name">name</label><?php echo  $data['croisiere'][0]->name ?></li>
                         <li> <label for="">date : <span><?php echo  $data['croisiere'][0]->datee ?></span></label> </li>
                         <li> <label for="">Prix : <span id="prix" name="prixx"><?php echo  $data['croisiere'][0]->prix ?></span>$</label> </li>
                         <li> <label for="">chomber</label>  
                             <select name="chombercr"  id="prixchomber" onchange='swprix()' name="" id="">
-                                <option value="1">solo</option>
-                                <option value="2">duo</option>
-                                <option value="3">famliy</option>
+                            <?php foreach($data['Rooms'] as $row ){ ?>
+                                <option data-prix="<?php echo $row->prix ?>" value="<?php echo $row->num_chambre ?>"><?php echo $row->type ?></option>                       
+                                <?php }?>
                             </select>
                         </li>
                     </ul>
@@ -45,11 +46,11 @@
                         <?php }?>
                     </ul>
                     <div class="row r4">
-                        <div class="col-md-2 myt "><button name="btnResereve" type="submit" class="btn btn-outline-warning"><a href="#">BUY NOW</a></button></div>
+                        <div class="col-md-2 myt "><button name="btnResereve" type="submit" class="btn btn-outline-warning">BUY NOW</button></div>
                     </div>
                     </form>
                 </div>
-            
+
             <div class="col-md-6"> <img
                     src="<?php echo URLROOT  ?>/imgg/<?php echo $data['croisiere'][0]->image ?>"
                     width="90%" height="95%"> </div>

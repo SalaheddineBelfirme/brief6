@@ -4,20 +4,20 @@ session_start();
     private $postModel;
     private $navire;
     private $Port;
+    private $Resrvation;
     public static $btn;
     
     public function __construct(){
       $this->postModel = $this->model('croisiereM');
       $this->navire = $this->model('navierM');
       $this->Port = $this->model('portM');
+      $this->Resrvation = $this->model('ResrvationM');
+
 
     }
     
     
    
-
-
-
 
    static public function  test(){
     
@@ -34,7 +34,6 @@ session_start();
     static public function  testlog(){
       if(isset($_SESSION['log']) && $_SESSION['log']<>false ){
         if( ($_SESSION['log'][0]->role==1 ) ){
-  
           return "logout";
         }
         
@@ -59,12 +58,14 @@ session_start();
 
       $this->view('pages/home', $data);
     }
-    public function details($id){
+    public function details($id,$idnv){
+      $Rooms=$this->Resrvation->Getchmbers($idnv);
       $tragit=$this->Port->getports($id);
       $croisiere=$this->postModel->GetOneCrocisiere($id);
       $data = [
         'croisiere' => $croisiere,
-        'ports'=>$tragit
+        'ports'=>$tragit,
+        'Rooms'=>$Rooms
       ];
 
       $this->view('pages/details', $data);
@@ -155,8 +156,6 @@ session_start();
   
         $this->view('pages/croisiere', $data);
       }
-
-
 
     public function add_croisi(){
       $data = [

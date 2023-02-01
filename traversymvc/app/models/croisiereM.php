@@ -99,6 +99,7 @@
      $stmt->execute();
 
     }   
+    
     public function GetOneCrocisiere($id){
 
       $qury="SELECT * FROM croisiere c,port p,navire n  WHERE c.navire=n.id_navire  AND c.port_de_depart=p.id_port and id_croisiere =$id";
