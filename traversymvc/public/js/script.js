@@ -5,9 +5,13 @@ const navbar = document.querySelector('.header .navbar');
   var prixcr=document.getElementById('prixcr').value;
    var prixchomber=document.getElementById('prixchomber').value;
    var prix=document.getElementById('prix');
+   var prixhi=document.getElementById('prixhi');
+
   prix.value=(parseInt(prixcr)+parseInt(prixchomber))
   console.log(prix.value)
   prix.textContent=prix.value
+  prixhi.textContent=prix.value
+
  }
 
 function save(event){

@@ -11,16 +11,16 @@ class login extends Controller {
 
     public function loginn(){
 
-        if(isset ($_POST['log'])){
+        // if(isset ($_POST['log'])){
 
-        }
+        // }
 
         $email=$_POST['email'];
         $pass=$_POST['pass'];
         
      
        $r=$this->postModel->checklogin($email,$pass);
-  var_dump($r);
+        //  var_dump($r);
   
  
   

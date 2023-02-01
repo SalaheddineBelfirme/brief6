@@ -25,6 +25,6 @@ require_once '../app/controllers/Pages.php';
                 </div>
                     <a href="<?php echo URLROOT ?>/Pages/contact" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="<?php echo Pages::testlog();?>" class="btn btn-primary rounded-pill py-2 px-4"><?php echo Pages::testlog();?></a>
+                <a href=" <?php echo URLROOT ?>/Pages/<?php echo Pages::testlog();?>" class="btn btn-primary rounded-pill py-2 px-4"><?php echo Pages::testlog();?></a>
             </div>
         </nav>

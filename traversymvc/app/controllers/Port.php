@@ -9,6 +9,7 @@ class Port extends Controller {
 
     public function addPort(){
       if(isset($_POST['sub_addport'])){
+        
         $nv=new PortM();
         $name=$_POST['namePt'];
         $pays=$_POST['pays'];

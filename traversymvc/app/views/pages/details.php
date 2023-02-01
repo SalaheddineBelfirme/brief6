@@ -22,18 +22,19 @@
     <div class="container-body mt-4">
         <div class="row r3">
                 <div class="col-md-6 p-0 klo">
-                <form action="">
+                <form method="post" action="<?php echo URLROOT ?>/Reservation/reservation/" >
                     <input id="prixcr" value="<?php echo  $data['croisiere'][0]->prix ?>" type="hidden">
-                    <input id="idcr" value="<?php echo  $data['croisiere'][0]->id_croisiere ?>" type="hidden">
+                    <input name="idCR" id="idcr" value="<?php echo  $data['croisiere'][0]->id_croisiere ?>" type="hidden">
+                    <input name="prixhi"  value="<?php echo  $data['croisiere'][0]->id_croisiere ?>" type="hidden">
                     <ul>
                         <li class="name"> <label for="name">name</label><?php echo  $data['croisiere'][0]->name ?></li>
                         <li> <label for="">date : <span><?php echo  $data['croisiere'][0]->datee ?></span></label> </li>
-                        <li> <label for="">Prix : <span id="prix" name="prix"><?php echo  $data['croisiere'][0]->prix ?>$      </span></label> </li>
-                        <li> <label for="">chomber</label>
+                        <li> <label for="">Prix : <span id="prix" name="prixx"><?php echo  $data['croisiere'][0]->prix ?></span>$</label> </li>
+                        <li> <label for="">chomber</label>  
                             <select name="chombercr"  id="prixchomber" onchange='swprix()' name="" id="">
-                                <option value="100">solo</option>
-                                <option value="200">duo</option>
-                                <option value="500">famliy</option>
+                                <option value="1">solo</option>
+                                <option value="2">duo</option>
+                                <option value="3">famliy</option>
                             </select>
                         </li>
                     </ul>
@@ -44,8 +45,7 @@
                         <?php }?>
                     </ul>
                     <div class="row r4">
-                        <div class="col-md-2 myt "><button type="submit" class="btn btn-outline-warning"><a href="#">BUY
-                                    NOW</a></button></div>
+                        <div class="col-md-2 myt "><button name="btnResereve" type="submit" class="btn btn-outline-warning"><a href="#">BUY NOW</a></button></div>
                     </div>
                     </form>
                 </div>

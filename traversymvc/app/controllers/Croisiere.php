@@ -7,13 +7,12 @@ class Croisiere extends Controller {
 
     $this->postModel = $this->model('croisiereM');
     
+
   }
 
   public function DeleteCroisiere($id){
     $cr=new croisiereM();
     $cr->deletecro($id);
-    
-   
     if($cr==true){
       $_SESSION['deletenavier']=true;
       header("Location: http://localhost/brief6/traversymvc/pages/dashboard");
@@ -28,7 +27,7 @@ class Croisiere extends Controller {
       if(isset($_POST['submitadd'])){
       $cr=new croisiereM();
       $nb_nuits=$_POST['nights'];
-      echo $nb_nuits;
+     
       // $image=$_FILES['imageadd']['name'];
       $prix=$_POST['prix'];
       $image='image';
