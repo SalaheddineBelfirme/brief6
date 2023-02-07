@@ -27,7 +27,6 @@ class Croisiere extends Controller {
       if(isset($_POST['submitadd'])){
       $cr=new croisiereM();
       $nb_nuits=$_POST['nights'];
-     
       // $image=$_FILES['imageadd']['name'];
       $prix=$_POST['prix'];
       $image='image';

@@ -6,8 +6,9 @@
             $this->db = new Database;
          }
      
-         public function GetReservation(){
-            $stmt= $this->db->query("SELECT * FROM `reservation` ");
+         public function GetReservation($id){
+            $stmt= $this->db->query("SELECT * FROM croisiere , `reservation` where id_client=:id AND croisiere.id_croisiere=reservation.id_croisiere");
+            $stmt->bindValue(':id',$id,PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_OBJ);
        }

@@ -8,16 +8,14 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-12">
-                  <form id="search-form" name="gs" method="post" role="search" action="<?php echo URLROOT?>/Pages/croisiere/">
+                  <form id="search-form" name="gs" method="post" role="search" action="<?php echo URLROOT?>/Pages/croisiere">
                     <div class="row">
                       <div class="col-lg-2">
                         <h4>Sort Deals By:</h4>
                       </div>
                       <div class="col-lg-3">
-                          <fieldset
+                          <fieldset>
                               <input name="date" type="datetime-local" class="form-select" aria-label="Default select example" id="chooseLocation">
-                            
-                             
                           </fieldset>
                       </div>
                       <div class="col-lg-3">

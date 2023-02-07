@@ -14,10 +14,11 @@ class Reservation extends Controller {
 
   public function reservation(){
     if(isset($_SESSION['log']) || $_SESSION['log']!=null ){
-
       if(isset($_POST["btnResereve"])){
+      
         $id_chambre=$_POST['chombercr'];
         $id_client= $_SESSION['log'][0]->id_user;
+            
         $date_reseravation= date("Y-m-d") ;
         $prix_reservation=$_POST['prixhi'];
         $id_croisiere=$_POST['idCR'];
@@ -44,6 +45,14 @@ class Reservation extends Controller {
  
   }
 
+
+  public function deleteResrvation($id){
+
+    $rv=new ResrvationM();
+   $bol= $rv->DeleteReservation($id);
+   header("Location: http://localhost/brief6/traversymvc/pages/resvarstion");
+
+  }
 
 
 
