@@ -47,9 +47,10 @@ class Reservation extends Controller {
 
 
   public function deleteResrvation($id){
-
     $rv=new ResrvationM();
    $bol= $rv->DeleteReservation($id);
+   echo("dazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz :".$bol);
+ 
    header("Location: http://localhost/brief6/traversymvc/pages/resvarstion");
 
   }

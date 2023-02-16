@@ -25,7 +25,6 @@
                                   <?php foreach($data['filter'] as $row) {?>
                                   <option value="<?php echo $row->id_port ?>"><?php echo $row->nameP ?></option>
                                   <?php } ?>
-                          
                               </select>
                           </fieldset>
                       </div>
@@ -100,5 +99,8 @@
 
     </div>
    
+    <?php require APPROOT . '/views/inc/footer.php';
+
+?>
 
 

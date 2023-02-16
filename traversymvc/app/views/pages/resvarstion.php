@@ -1,6 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <?php require APPROOT . '/views/inc/nav.php';?>
-
 <div class="container-xxl py-5 mt-5 "> <br>
             <div class="container">
                 <div class="text-center wow fadeInUp"  data-wow-delay="0.1s">
@@ -33,8 +32,8 @@
                                 </div>
                           
                                 <div class="d-flex justify-content-center mb-2">
-                                    <!-- <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-                                    <a href="<?php echo URLROOT?>/Pages/deleteResrvation/<?php echo  $row->id_croisiere ?>/<?php echo  $row->id_navire ?>" class="btn btn-primary px-3" style="border-radius:  30px;"> Cancel</a>
+                                    <a href="<?php echo URLROOT ?>/Reservation/deleteResrvation/<?php echo  $row->id_reservation  ?>" class="btn btn-primary px-3" style="border-radius:  30px;"> Cancel</a>
+
                                 </div>
                             </div> 
                         </div>
@@ -45,3 +44,5 @@
                 </div>
             </div>
         </div>
+
+        <?php require APPROOT . '/views/inc/footer.php'; ?>

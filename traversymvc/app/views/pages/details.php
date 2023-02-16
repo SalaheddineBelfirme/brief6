@@ -58,3 +58,5 @@ var_dump($data['Rooms']) ;
     </div>
 
 </div>
+
+<?php require APPROOT . '/views/inc/footer.php'; ?>

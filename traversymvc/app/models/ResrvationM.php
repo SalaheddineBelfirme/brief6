@@ -32,10 +32,12 @@
          }
 
           public function DeleteReservation($id){
+            
 
                     $stmt= $this->db->query("DELETE FROM `reservation` WHERE id_reservation=:id ");
                     $stmt->bindValue(':id',$id,PDO::PARAM_INT);
                     $stmt->execute();
+                 
                     if($stmt->RowCount()>0){
                         return true;
                     }

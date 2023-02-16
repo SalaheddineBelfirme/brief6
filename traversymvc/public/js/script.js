@@ -24,7 +24,7 @@ function save(event){
     type: "GET",
     url: "http://localhost/CureCoj/traversymvc/categorie/getcategorie/",
     success: function (resolt){
-console.log("count ")
+    console.log("count ")
     }
 
   });
@@ -34,10 +34,8 @@ console.log("count ")
 document.addEventListener("DOMContentLoaded",()=>{
 
   var listcros = document.querySelectorAll(".croses");
-  console.log("page dane");
-  
-
-
+  console.log("page danevvvvvv");
+  console.log(listcros);
 
 listcros.forEach(function(listcros) {
  
@@ -57,12 +55,9 @@ listcros.forEach(function(listcros) {
 
     console.log(disble);
     var card =listcros.parentNode.parentNode.parentElement;
-    // card.style.display="false"
-    // card.style.display = "none"
-   
     console.log(card);
-    card.style.backgroundColor = "#5d6673";
-    card.style.color="red";
+    card.style.backgroundColor = "rgb(93 102 115 / 36%)";
+    // card.style.color="red";
 
    }
    if(disble){
@@ -71,7 +66,7 @@ listcros.forEach(function(listcros) {
   topcard.href="#"    
    }
 
-   console.log("next");
+  
   
 });
 
@@ -82,32 +77,3 @@ listcros.forEach(function(listcros) {
 })
 
 
-
-
-//  const today = datecr.getDate();
-const currentMonth = date.getMonth()+1; 
-console.log(today);
-
-
-// menubtn.addEventListener('click',()=>{
-//     navbar.classList.toggle('active');
-//     menubtn.classList.toggle('fa-times');
-// })
-
-// window.onscroll = ()=>{
-//     menubtn.classList.remove('fa-times');
-//     navbar.classList.remove('active');
-// }
-
-// const swiper = new Swiper('.home-slider', {
-//     loop: true,
-  
-//     // Navigation arrows
-//     navigation: {
-//       nextEl: '.swiper-button-next',
-//       prevEl: '.swiper-button-prev',
-//     },
-
-//   });
-
- 

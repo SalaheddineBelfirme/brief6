@@ -31,6 +31,7 @@ session_start();
       return "none";
     }
     }
+    
     static public function  testlog(){
       if(isset($_SESSION['log']) && $_SESSION['log']<>false ){
         if( ($_SESSION['log'][0]->role==1 ) ){
@@ -52,8 +53,9 @@ session_start();
       $this->view('pages/index', $data);
     }
     public function home(){
+     $croisierForHome= $this->postModel->Get3FirstCros();
       $data = [
-        'title' => 'home Us'
+        'croisier' => $croisierForHome
       ];
 
       $this->view('pages/home', $data);
