@@ -12,7 +12,6 @@ const navbar = document.querySelector('.header .navbar');
   console.log(prix.value);
   prix.textContent=prix.value
   prixhi.value=prix.value
-
  }
 
 function save(event){

@@ -15,9 +15,9 @@
                       </div>
                       <div class="col-lg-3">
                           <fieldset
-                              <input name="date" type="datetime-local" class="form-select" aria-label="Default select example" id="chooseLocation">
+                          <input name="date" type="datetime-local" class="form-select" aria-label="Default select example" id="chooseLocation">
                             
-                             
+                             <input type="date">
                           </fieldset>
                       </div>
                       <div class="col-lg-3">
