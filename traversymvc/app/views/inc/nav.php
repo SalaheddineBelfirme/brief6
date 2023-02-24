@@ -21,7 +21,7 @@ require_once '../app/controllers/Pages.php';
                     <a href="<?php echo URLROOT ?>/Pages/croisiere" class="nav-item nav-link">croisiere</a>
                     <a style="display:<?php echo Pages::test();?>" href="dashboard" class="nav-item nav-link">dashboard</a>
                  
-                    <a href="<?php echo URLROOT ?>/Pages/resvarstion" class="nav-item nav-link">resvarstion</a>
+                    <a style="display:<?php echo Pages::test();?>"  href="<?php echo URLROOT ?>/Pages/resvarstion" class="nav-item nav-link">resvarstion</a>
                 </div>
                     <a href="<?php echo URLROOT ?>/Pages/contact" class="nav-item nav-link">Contact</a>
                 </div>

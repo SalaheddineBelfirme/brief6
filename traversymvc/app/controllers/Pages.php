@@ -31,6 +31,7 @@ session_start();
       return "none";
     }
     }
+    
     static public function  testlog(){
       if(isset($_SESSION['log']) && $_SESSION['log']<>false ){
         if( ($_SESSION['log'][0]->role==1 ) ){
@@ -52,13 +53,15 @@ session_start();
       $this->view('pages/index', $data);
     }
     public function home(){
+     $croisierForHome= $this->postModel->Get3FirstCros();
       $data = [
-        'title' => 'home Us'
+        'croisier' => $croisierForHome
       ];
 
       $this->view('pages/home', $data);
     }
     public function details($id,$idnv){
+
       $Rooms=$this->Resrvation->Getchmbers($idnv);
       $tragit=$this->Port->getports($id);
       $croisiere=$this->postModel->GetOneCrocisiere($id);
@@ -72,11 +75,23 @@ session_start();
     }
     
     public function resvarstion(){
-      $data = [
-        'title' => 'resvarstion '
-      ];
 
+ if(isset($_SESSION['log']) || $_SESSION['log']!=null ){
+
+
+  $id_clint=$_SESSION['log'][0]->id_user;
+  $ResrvationCliont=$this->Resrvation->GetReservation($id_clint);
+
+      $data = [
+        'ResrvationCliont' => $ResrvationCliont
+      ];
       $this->view('pages/resvarstion', $data);
+ }
+ else{
+ 
+  $this->view('pages/login');
+   
+ }
     }
 
     public function login(){
@@ -127,7 +142,6 @@ session_start();
       if(isset($_POST["port"])){
         $bol=false;
         $param[0]=$_POST["port"];
-    
 
       }
       if(isset($_POST["navier"])){

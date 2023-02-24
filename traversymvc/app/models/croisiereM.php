@@ -44,6 +44,12 @@
    return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function Get3FirstCros(){
+      $stmt= $this->db->query("SELECT * FROM croisiere c,port p,navire n  WHERE c.navire=n.id_navire  AND c.port_de_depart=p.id_port LIMIT 3 ");
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
+       }
+
     public function deletecro($id){
       $stmt= $this->db->query("DELETE  FROM croisiere where id_croisiere =$id ");
       $stmt->execute();

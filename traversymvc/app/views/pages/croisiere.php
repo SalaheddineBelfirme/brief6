@@ -8,16 +8,14 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-12">
-                  <form id="search-form" name="gs" method="post" role="search" action="<?php echo URLROOT?>/Pages/croisiere/">
+                  <form id="search-form" name="gs" method="post" role="search" action="<?php echo URLROOT?>/Pages/croisiere">
                     <div class="row">
                       <div class="col-lg-2">
                         <h4>Sort Deals By:</h4>
                       </div>
                       <div class="col-lg-3">
-                          <fieldset
-                          <input name="date" type="datetime-local" class="form-select" aria-label="Default select example" id="chooseLocation">
-                            
-                             <input type="date">
+                          <fieldset>
+                              <input style="    background-color: #4f8aff;" name="date" type="datetime-local" class="form-select" aria-label="Default select example" id="chooseLocation">
                           </fieldset>
                       </div>
                       <div class="col-lg-3">
@@ -27,7 +25,6 @@
                                   <?php foreach($data['filter'] as $row) {?>
                                   <option value="<?php echo $row->id_port ?>"><?php echo $row->nameP ?></option>
                                   <?php } ?>
-                          
                               </select>
                           </fieldset>
                       </div>
@@ -102,5 +99,8 @@
 
     </div>
    
+    <?php require APPROOT . '/views/inc/footer.php';
+
+?>
 
 
