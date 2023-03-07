@@ -31,7 +31,7 @@
                
             </div>
             <div class="col-md-6 mt-5">
-            <img src="<?php echo URLROOT ?>/public/imgg/Contact us-amico.png" class="d-block h-100" alt="...">
+            <img style="    height: 500px;" src="<?php echo URLROOT ?>/public/imgg/Contact us-amico.png" class="d-block " alt="...">
             </div>
  
         </div>
@@ -40,9 +40,8 @@
         </div>
         
     </div>
-</body>
-<footer>
+
+
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-</footer>
-</html>
+<?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -7,7 +7,7 @@
 
   // App Root
   define('APPROOT', dirname(dirname(__FILE__)));
-  // URL Root
+  // URL Rootx
   define('URLROOT', 'http://localhost/brief6/traversymvc');
   // Site Name
-  define('SITENAME', 'TraversyMVC');
+  define('SITENAME', ' shipcruisetour');

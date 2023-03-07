@@ -30,6 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="<?php echo URLROOT?>/public/css/style.css" rel="stylesheet">
+    <script src="<?php echo URLROOT?>/public/js/script.js"></script>
 </head>
 
 <body>
